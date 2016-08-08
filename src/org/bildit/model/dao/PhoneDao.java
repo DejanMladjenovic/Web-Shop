@@ -9,11 +9,13 @@ public interface PhoneDao {
 	
 	boolean insertPhone(Phone phone) throws SQLException;
 	
-	List<Phone> readPhones(String match) throws SQLException;
+	List<Phone> readAllPhones() throws SQLException;
 	
-	Phone readPhone(String phone) throws SQLException;
+	List<Phone> readMatchedPhones(String match) throws SQLException;
 	
-	boolean updatePhonePrice(Phone phone) throws SQLException;
+	Phone readPhone(int id) throws SQLException;
+	
+	boolean updatePhone(Phone phone) throws SQLException;
 
 	boolean updatePhoneAmount(Phone phone) throws SQLException;
 	

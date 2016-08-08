@@ -3,14 +3,15 @@ package org.bildit.model.bo.user;
 import java.sql.SQLException;
 
 import org.bildit.model.dao.UserDao;
+import org.bildit.model.dao.UserDaoImpl;
 import org.bildit.model.dto.User;
 
 public class UserBoImpl implements UserBo {
 	
-	private UserDao userDao;
+	private UserDao userDao = new UserDaoImpl();
 
 	@Override
-	public boolean createUser(User user) throws SQLException {
+	public boolean createUser(User user){
 		
 		if(user != null) {
 			try{
@@ -21,27 +22,29 @@ public class UserBoImpl implements UserBo {
 			}
 			return false;
 		} else
-			throw new SQLException();
+			return false;
 	}
 
 	@Override
-	public boolean readUser(String username, String password) {
+	public User readUser(String username, String password) {
 		
 		User user = null;
 		
 		try{
 			user = userDao.readUser(username);
-			if(user.getUsername().equals(username) && user.getPassword().equals(password)) {
-				return true;
+			if(user.getUsername().equals(username) && user.getPassword().equals(password)){
+				return user;
 			}
-		} catch (SQLException e) {
+		} catch (SQLException | NullPointerException e) {
 			e.printStackTrace();
-		}	
-		return false;
+		}
+		return null;
 	}
 
 	public void setDao(UserDao userDao) {
 		this.userDao = userDao;
 	}
+	
+
 
 }

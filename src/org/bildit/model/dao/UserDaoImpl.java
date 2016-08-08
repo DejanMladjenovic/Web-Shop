@@ -31,7 +31,7 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public User readUser(String username) throws SQLException {
+	public User readUser(String username) throws SQLException{
 
 		User user = null;
 		ResultSet rs = null;

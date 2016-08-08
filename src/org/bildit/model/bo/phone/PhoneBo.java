@@ -9,11 +9,13 @@ public interface PhoneBo {
 	
 	boolean insertPhone(Phone phone) throws SQLException;
 	
-	List<Phone> readPhones(String match);
+	List<Phone> readAllPhones();
 	
-	Phone readPhone(String phone);
+	List<Phone> readMatchedPhones(String match);
 	
-	boolean updatePhonePrice(Phone phone) throws SQLException;
+	Phone readPhone(int id);
+	
+	boolean updatePhone(Phone phone) ;
 
 	boolean updatePhoneAmount(Phone phone) throws SQLException;
 

@@ -5,33 +5,46 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.bildit.model.dao.PhoneDao;
+import org.bildit.model.dao.PhoneDaoImpl;
 import org.bildit.model.dto.Phone;
 
 public class PhoneBoImpl implements PhoneBo {
 	
-	private PhoneDao phoneDao;
+	private PhoneDao phoneDao = new PhoneDaoImpl();
 
 	@Override
-	public boolean insertPhone(Phone phone) throws SQLException {
+	public boolean insertPhone(Phone phone) {
 		
 		if(phone != null) {
 			try {
-				if(phoneDao.insertPhone(phone))
-					return true;
+				phoneDao.insertPhone(phone);
 			} catch (SQLException e) {
 				e.printStackTrace();
+				return false;
 			}
-			return false;
+			return true;
 		} else 
-			throw new SQLException();
+			return false;
 	}
 
 	@Override
-	public List<Phone> readPhones(String match) {
+	public List<Phone> readAllPhones() {
 		
 		List<Phone> phones = new ArrayList<>();
 		try {
-			phones = phoneDao.readPhones(match);
+			phones = phoneDao.readAllPhones();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return phones;
+	}
+	
+	@Override
+	public List<Phone> readMatchedPhones(String match) {
+		
+		List<Phone> phones = new ArrayList<>();
+		try {
+			phones = phoneDao.readMatchedPhones(match);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -39,11 +52,11 @@ public class PhoneBoImpl implements PhoneBo {
 	}
 
 	@Override
-	public Phone readPhone(String name) {
+	public Phone readPhone(int id) {
 
 		Phone phone = null;
 		try {
-			phone = phoneDao.readPhone(name);
+			phone = phoneDao.readPhone(id);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -51,18 +64,18 @@ public class PhoneBoImpl implements PhoneBo {
 	}
 
 	@Override
-	public boolean updatePhonePrice(Phone phone) throws SQLException {
+	public boolean updatePhone(Phone phone) {
 
 		if(phone != null) {
 			try {
-				if(phoneDao.updatePhonePrice(phone))
-					return true;
+				phoneDao.updatePhone(phone);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-			return false;
+			return true;
 		} else
-			throw new SQLException();
+			return false;
+			
 	}
 
 
