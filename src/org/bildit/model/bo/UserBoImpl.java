@@ -1,4 +1,4 @@
-package org.bildit.model.bo.user;
+package org.bildit.model.bo;
 
 import java.sql.SQLException;
 
@@ -13,16 +13,13 @@ public class UserBoImpl implements UserBo {
 	@Override
 	public boolean createUser(User user){
 		
-		if(user != null) {
-			try{
-				if(userDao.createUser(user))
-					return true;
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+		try {
+			userDao.createUser(user);
+		} catch (SQLException e) {
+			e.printStackTrace();
 			return false;
-		} else
-			return false;
+		}
+		return true;
 	}
 
 	@Override
@@ -40,11 +37,5 @@ public class UserBoImpl implements UserBo {
 		}
 		return null;
 	}
-
-	public void setDao(UserDao userDao) {
-		this.userDao = userDao;
-	}
-	
-
 
 }

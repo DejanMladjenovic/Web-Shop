@@ -92,15 +92,13 @@
 									<h3>${phone.manufacturer} ${phone.model}</h3>
 									<h4>${phone.price} KM</h4>
 									
-									<div>
+									<div class="row">
 										<form action="PhoneServlet">
 											<button class="btn btn-primary" name="details" value="${phone.phoneId}">Detaljnije!</button>
 										</form>
-										<c:if test="${user.username != null }">
-										<a href="mycart.jsp">
-											<button class="btn btn-success"> <c:set var="cart" value="${phone}" scope="session"></c:set>Dodaj u korpu!</button>
-										</a>
-										</c:if>
+										<form action="MyCartServlet">
+											<button name="cart" class="btn btn-success" value="${phone.phoneId}"> Dodaj u korpu!</button>
+										</form>
 									</div>
 								</div>
 							</div>

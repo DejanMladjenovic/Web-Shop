@@ -12,7 +12,7 @@ public class UserDaoImpl implements UserDao {
 	Connection connection = ConnectionManager.getInstance().getConnection();
 
 	@Override
-	public boolean createUser(User user) throws SQLException {
+	public void createUser(User user) throws SQLException {
 		
 		String query = "INSERT INTO users(username, password, firstName, lastName, address, phoneNumber) "
 				+ "VALUES(?,?,?,?,?,?)";
@@ -26,7 +26,6 @@ public class UserDaoImpl implements UserDao {
 			statement.setString(6, user.getPhoneNumber());
 			
 			statement.executeUpdate();
-			return true;
 		}
 	}
 

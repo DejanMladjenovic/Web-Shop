@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.bildit.model.bo.phone.PhoneBoImpl;
+import org.bildit.model.bo.PhoneBoImpl;
 import org.bildit.model.dto.Phone;
 
 /**

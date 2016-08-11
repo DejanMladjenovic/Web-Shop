@@ -1,13 +1,12 @@
-package org.bildit.model.bo.phone;
+package org.bildit.model.bo;
 
-import java.sql.SQLException;
 import java.util.List;
 
 import org.bildit.model.dto.Phone;
 
 public interface PhoneBo {
 	
-	boolean insertPhone(Phone phone) throws SQLException;
+	boolean insertPhone(Phone phone);
 	
 	List<Phone> readAllPhones();
 	
@@ -17,7 +16,5 @@ public interface PhoneBo {
 	
 	boolean updatePhone(Phone phone) ;
 
-	boolean updatePhoneAmount(Phone phone) throws SQLException;
-
-	boolean deletePhone(Phone phone) throws SQLException;
+	boolean deletePhone(Phone phone);
 }

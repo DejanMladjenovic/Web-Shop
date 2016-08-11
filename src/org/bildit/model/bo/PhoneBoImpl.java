@@ -1,4 +1,4 @@
-package org.bildit.model.bo.phone;
+package org.bildit.model.bo;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -15,16 +15,13 @@ public class PhoneBoImpl implements PhoneBo {
 	@Override
 	public boolean insertPhone(Phone phone) {
 		
-		if(phone != null) {
-			try {
-				phoneDao.insertPhone(phone);
-			} catch (SQLException e) {
-				e.printStackTrace();
-				return false;
-			}
-			return true;
-		} else 
+		try {
+			phoneDao.insertPhone(phone);
+		} catch (SQLException e) {
+			e.printStackTrace();
 			return false;
+		}
+		return true;
 	}
 
 	@Override
@@ -66,47 +63,27 @@ public class PhoneBoImpl implements PhoneBo {
 	@Override
 	public boolean updatePhone(Phone phone) {
 
-		if(phone != null) {
-			try {
-				phoneDao.updatePhone(phone);
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-			return true;
-		} else
+		try {
+			phoneDao.updatePhone(phone);
+		} catch (SQLException e) {
+			e.printStackTrace();
 			return false;
+		}
+		return true;
 			
 	}
 
 
 	@Override
-	public boolean updatePhoneAmount(Phone phone) throws SQLException {
+	public boolean deletePhone(Phone phone) {
 
-		if(phone != null) {
-			try {
-				if(phoneDao.updatePhoneAmount(phone))
-					return true;
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+		try {
+			phoneDao.deletePhone(phone);
+		} catch (SQLException e) {
+			e.printStackTrace();
 			return false;
-		} else
-			throw new SQLException();
-	}
-
-	@Override
-	public boolean deletePhone(Phone phone) throws SQLException {
-
-		if(phone != null) {
-			try {
-				if(phoneDao.deletePhone(phone)) 
-					return true;
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-			return false;
-		} else
-			throw new SQLException();
+		}
+		return true;
 	}
 
 }

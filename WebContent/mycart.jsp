@@ -42,6 +42,7 @@
   					</tr>
   				</thead>
   				<tbody>
+  				<c:forEach items="${list}" var="cart">
   					<tr>
   						<td>${cart.phoneId}</td>
   						<td>${cart.manufacturer} ${cart.model}</td>
@@ -50,6 +51,7 @@
   					
   					</tr>
   				
+  				</c:forEach>
   				</tbody>
   		
   		
@@ -57,6 +59,8 @@
   			</table>
   		</div>
   	</div>
+  	
+  
   	
   
   

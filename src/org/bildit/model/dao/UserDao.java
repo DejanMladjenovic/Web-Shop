@@ -6,7 +6,7 @@ import org.bildit.model.dto.User;
 
 public interface UserDao {
 
-	boolean createUser(User user) throws SQLException;
+	void createUser(User user) throws SQLException;
 	
 	User readUser(String username) throws SQLException;
 }

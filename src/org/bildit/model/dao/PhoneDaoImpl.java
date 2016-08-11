@@ -14,7 +14,7 @@ public class PhoneDaoImpl implements PhoneDao {
 	Connection connection = ConnectionManager.getInstance().getConnection();
 
 	@Override
-	public boolean insertPhone(Phone phone) throws SQLException {
+	public void insertPhone(Phone phone) throws SQLException {
 		String query = "INSERT INTO phones (manufacturer, model, operating_system, description, price, amount,"
 				+ "picture) VALUES (?,?,?,?,?,?,?)";
 		
@@ -29,7 +29,6 @@ public class PhoneDaoImpl implements PhoneDao {
 			
 			statement.executeUpdate();
 		}
-		return true;
 	}
 
 	@Override
@@ -113,7 +112,7 @@ public class PhoneDaoImpl implements PhoneDao {
 	}
 
 	@Override
-	public boolean updatePhone(Phone phone) throws SQLException {
+	public void updatePhone(Phone phone) throws SQLException {
 		
 		String query = "UPDATE phones SET manufacturer=?, model=?, operating_system=?, description =?,"
 				+ "price=?, amount=?, picture=? WHERE phoneId=?";
@@ -130,19 +129,18 @@ public class PhoneDaoImpl implements PhoneDao {
 			
 			statement.executeUpdate();
 		}
-		return true;
 	}
 
 	@Override
-	public boolean updatePhoneAmount(Phone phone) throws SQLException {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean deletePhone(Phone phone) throws SQLException {
-		// TODO Auto-generated method stub
-		return false;
+	public void deletePhone(Phone phone) throws SQLException {
+		
+		String query = "DELETE FROM phones WHERE phoneId=?";
+		
+		try(PreparedStatement statement = connection.prepareStatement(query)) {
+			statement.setInt(1, phone.getPhoneId());
+			
+			statement.executeUpdate();
+		}
 	}
 
 }

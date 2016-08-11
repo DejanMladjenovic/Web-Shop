@@ -1,4 +1,4 @@
-package org.bildit.model.bo.user;
+package org.bildit.model.bo;
 
 import java.sql.SQLException;
 

@@ -7,7 +7,7 @@ import org.bildit.model.dto.Phone;
 
 public interface PhoneDao {
 	
-	boolean insertPhone(Phone phone) throws SQLException;
+	void insertPhone(Phone phone) throws SQLException;
 	
 	List<Phone> readAllPhones() throws SQLException;
 	
@@ -15,10 +15,8 @@ public interface PhoneDao {
 	
 	Phone readPhone(int id) throws SQLException;
 	
-	boolean updatePhone(Phone phone) throws SQLException;
-
-	boolean updatePhoneAmount(Phone phone) throws SQLException;
+	void updatePhone(Phone phone) throws SQLException;
 	
-	boolean deletePhone(Phone phone) throws SQLException;
+	void deletePhone(Phone phone) throws SQLException;
 
 }

@@ -1,6 +1,8 @@
 package org.bildit.model.dto;
 
-public class Phone {
+import java.io.Serializable;
+
+public class Phone implements Serializable{
 	
 	private int phoneId;
 	private String manufacturer;
