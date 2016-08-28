@@ -42,9 +42,15 @@
 				<h4>Cijena: ${phone.price} KM</h4>
 			</div>
 			
-			<div class="row container">
-				<button class="btn btn-success">Dodaj u korpu!</button>
+			<div>
+			<ul class="list-inline">
+			<li>
+				<form action="AddToCartServlet">
+					<button  class="btn btn-success" name="id" value="${phone.phoneId}">Dodaj u Korpu</button>
+				</form>
+				<li>
 				<a href="phoneslist.jsp"><button class="btn btn-danger">Vrati se nazad!</button></a>
+			</ul>
 			</div>
 		</div>	
 	</div>

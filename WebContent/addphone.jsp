@@ -35,21 +35,21 @@
 			<div class="form-group">
 				<label for="manufacturer" class="col-md-offset-3 col-md-1 ">Proizvodjac:</label>
 				<div class="col-md-5">
-					<input type="text" class="form-control" name="manufacturer">
+					<input type="text" class="form-control" name="manufacturer" required>
 				</div>
 			</div>
 
 			<div class="form-group">
 				<label for="model" class="col-md-offset-3 col-md-1">Model:</label>
 				<div class="col-md-5">
-					<input type="text" class="form-control" name="model">
+					<input type="text" class="form-control" name="model" required>
 				</div>
 			</div>
 
 			<div class="form-group">
 				<label for="operating_system" class="col-md-offset-3 col-md-1">Operativni sistem:</label>
 				<div class="col-md-5">
-					<input type="text" class="form-control" name="operating_system">
+					<input type="text" class="form-control" name="operating_system" required>
 				</div>
 			</div>
 
@@ -63,20 +63,20 @@
 			<div class="form-group">
 				<label for="price" class="col-md-offset-3 col-md-1">Cijena (u KM):</label>
 				<div class="col-md-5">
-					<input type="number" class="form-control" name="price">
+					<input type="number" class="form-control" name="price"  required>
 				</div>
 			</div>
 			
 			<div class="form-group">
 				<label for="amount" class="col-md-offset-3 col-md-1">Broj komada:</label>
 				<div class="col-md-5">
-					<input type="number" class="form-control" name="amount">
+					<input type="number" class="form-control" name="amount"  required>
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="picture" class="col-md-offset-3 col-md-1">Slika:</label>
 				<div class="col-md-5">
-					<input type="text" class="form-control" name="picture" placeholder="Link do slike">
+					<input type="text" class="form-control" name="picture" placeholder="Link do slike"  required>
 				</div>
 			</div>
 			

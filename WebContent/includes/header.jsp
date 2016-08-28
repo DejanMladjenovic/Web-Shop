@@ -31,11 +31,13 @@
 			<ul class="nav navbar-nav navbar-right">
 			<c:choose>
 				<c:when test="${user.username == null}">
+					<li><a href="mycart.jsp">Korpa</a></li>
 					<li><a href="login.jsp">Prijava</a></li>
 				</c:when>
 				
 				<c:when test="${user.username.equals(\"admin\")}">
 				<!-- Admin -->
+					<li><a href="mycart.jsp">Korpa</a></li>
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-haspopup="true"
 						aria-expanded="false">${user.username}<span class="caret"></span></a>

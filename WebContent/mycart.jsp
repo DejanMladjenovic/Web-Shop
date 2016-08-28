@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -30,33 +31,48 @@
   		<div>
   			<h3>Moja korpa</h3>
   		</div>
+  		
   	
   		<div class="well">
-  			<table class="table table-bordered">
+  			<table class="table table-bordered table-hover">
   				<thead>
   					<tr>
-  						<th>Id</th>
   						<th>Naziv</th>
   						<th>Cijena</th>
-  						<th></th>
+  						<th class="th-width">Kolicina</th>
+  						<th class="th-width">Ukloni</th>
   					</tr>
   				</thead>
-  				<tbody>
-  				<c:forEach items="${list}" var="cart">
+  						<c:if test="${fn:length(cart) == 0}">
+  							<td>Korpa je prazna!
+  						</c:if>
+  				<tbody class="tbody-user">
+  				<c:set var="total" value="${0}"/>
+  				<c:forEach items="${cart}" var="phone">
   					<tr>
-  						<td>${cart.phoneId}</td>
-  						<td>${cart.manufacturer} ${cart.model}</td>
-  						<td>${cart.price}</td>
-  						<td><input type="button" value="x" /></td>
-  					
+  						<td><c:out value="${phone.key.manufacturer} ${phone.key.model}"/></td>
+  						<td><c:out value="${phone.key.price} KM"/></td>
+  						<td><c:out value="${phone.value}"/></td>
+  						<td>
+  							<form action="RemoveFromCartServlet">
+  								<button class="btn btn-success" name="id"
+									value="${phone.key.phoneId}">X</button>
+  							</form>
+  						</td>
+  					</tr>
+  					<c:set var="total" value="${total + (phone.key.price * phone.value)}" />
+  				</c:forEach>
+  					<tr class="success">
+  						<td colspan="1">Ukupno:</td>
+  						<td>${total} KM</td>
   					</tr>
   				
-  				</c:forEach>
   				</tbody>
-  		
-  		
-  		
-  			</table>
+   			</table>
+  			
+  			<div class="text-center">
+	  			<button class="btn btn-primary">Potvrdi kupovinu</button>
+  			</div>
   		</div>
   	</div>
   	

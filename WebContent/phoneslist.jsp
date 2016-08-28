@@ -28,6 +28,8 @@
 	<c:import url="/PhonesListServlet" />
 
 	<div class="container">
+	
+	<h3 class="text-center"><c:out value="${message}"/></h3>
 		
 		<c:if test="${fn:length(phones) == 0}">
 			<h3 class="text-center">Nema artikala za prikaz!</h3>
@@ -83,23 +85,28 @@
 
 			<c:otherwise>
 			<!-- User -->
-				<div class="row">
+				<div>
 					<c:forEach items="${phones}" var="phone">
 						<div class="col-sm-6 col-md-4">
-							<div class="thumbnail">
+							<div class="thumbnail" style="border: 1px dotted">
 								<img src="${phone.picture}" alt="${phone.model}" />
 								<div class="caption">
 									<h3>${phone.manufacturer} ${phone.model}</h3>
 									<h4>${phone.price} KM</h4>
-									
-									<div class="row">
-										<form action="PhoneServlet">
-											<button class="btn btn-primary" name="details" value="${phone.phoneId}">Detaljnije!</button>
-										</form>
-										<form action="MyCartServlet">
-											<button name="cart" class="btn btn-success" value="${phone.phoneId}"> Dodaj u korpu!</button>
-										</form>
-									</div>
+									<ul class="list-inline">
+										<li>
+											<form action="PhoneServlet">
+												<button class="btn btn-primary" name="details"
+													value="${phone.phoneId}">Detaljnije!</button>
+											</form>
+										</li>
+										<li>
+											<form action="AddToCartServlet">
+												<button class="btn btn-success" name="id"
+													value="${phone.phoneId}">Dodaj u Korpu</button>
+											</form>
+										</li>
+									</ul>
 								</div>
 							</div>
 						</div>

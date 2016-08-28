@@ -60,7 +60,7 @@ public class PhoneDaoImpl implements PhoneDao {
 	@Override
 	public List<Phone> readMatchedPhones(String match) throws SQLException {
 		List<Phone> phones = new ArrayList<>();
-		String query = "SELECT * FROM phones where manufacturer LIKE ? OR model LIKE ?";
+		String query = "SELECT * FROM phones WHERE manufacturer LIKE ? OR model LIKE ?";
 		ResultSet rs = null;
 		
 		try(PreparedStatement statement = connection.prepareStatement(query)) {

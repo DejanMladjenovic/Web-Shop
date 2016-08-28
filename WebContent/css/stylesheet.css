@@ -2,7 +2,33 @@ body {
 	background: whitesmoke;
 }
 
- .carousel-inner > .item > img {
+.carousel-inner > .item > img {
       width: 70%;
       margin: auto;
   }
+
+h3 { 
+	color: #4a89dc; 
+}
+
+h4 {
+	color: #4a45af;
+}
+
+th{
+	color: #23235c;
+}
+
+.tbody-user {
+	color: 	#663399;
+	background-color:white;
+}
+
+.th-width {
+	width: 8%;
+}
+
+.success {
+	font-size: 150%;
+}
+
